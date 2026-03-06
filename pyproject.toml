@@ -1,0 +1,26 @@
+[project]
+name = "d2l-mcp-server-notion"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "aioredis>=2.0.1",
+    "asyncpg>=0.31.0",
+    "beautifulsoup4>=4.14.3",
+    "black>=26.1.0",
+    "fastapi>=0.135.1",
+    "httpx>=0.28.1",
+    "isort>=8.0.1",
+    "mypy>=1.19.1",
+    "notion-client>=3.0.0",
+    "openai>=2.26.0",
+    "psycopg2-binary>=2.9.11",
+    "pydantic>=2.12.5",
+    "python-dotenv>=1.2.2",
+    "redis>=7.2.1",
+    "requests>=2.32.5",
+    "rich>=14.3.3",
+    "sqlalchemy>=2.0.48",
+    "uvicorn>=0.41.0",
+]

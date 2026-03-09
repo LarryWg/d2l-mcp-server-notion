@@ -21,7 +21,7 @@ from config import get_settings
 logger = logging.getLogger(__name__)
 settings = get_settings()
 
-# ── Shared async client ───────────────────────────────────────────────────────
+# Shared async client 
 # Re-used across requests to benefit from connection pooling.
 
 _client: httpx.AsyncClient | None = None
@@ -54,7 +54,7 @@ async def close_client() -> None:
         _client = None
 
 
-# ── Internal helpers ─────────────────────────────────────────────────────────
+# Internal helpers 
 
 async def _get(path: str, params: dict[str, Any] | None = None) -> Any:
     """Issue an authenticated GET and return parsed JSON.
@@ -67,7 +67,7 @@ async def _get(path: str, params: dict[str, Any] | None = None) -> Any:
     return response.json()
 
 
-# ── Public API ────────────────────────────────────────────────────────────────
+# Public API 
 
 async def fetch_courses() -> list[dict[str, Any]]:
     """Return a list of enrolled courses for the authenticated user.

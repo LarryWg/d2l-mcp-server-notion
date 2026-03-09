@@ -27,7 +27,7 @@ from config import get_settings
 
 settings = get_settings()
 
-# ── Engine ────────────────────────────────────────────────────────────────────
+# Engine 
 
 engine = create_async_engine(
     settings.postgres_url,
@@ -44,13 +44,13 @@ AsyncSessionLocal = async_sessionmaker(
 )
 
 
-# ── Base ─────────────────────────────────────────────────────────────────────
+# Base 
 
 class Base(DeclarativeBase):
     pass
 
 
-# ── Models ────────────────────────────────────────────────────────────────────
+# Models 
 
 class Course(Base):
     """A D2L course (org unit)."""
@@ -130,7 +130,7 @@ class Quiz(Base):
         return f"<Quiz id={self.d2l_quiz_id} name={self.name!r}>"
 
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# Helpers 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
     """FastAPI dependency that yields a database session per request."""

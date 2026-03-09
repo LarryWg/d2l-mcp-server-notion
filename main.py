@@ -12,7 +12,7 @@ import d2l_client
 import mcp_tools
 from db import get_db, init_db
 
-# ── Logging ───────────────────────────────────────────────────────────────────
+# Logging 
 
 logging.basicConfig(
     level=logging.INFO,
@@ -21,7 +21,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-# ── Lifespan (startup / shutdown) ─────────────────────────────────────────────
+# Lifespan (startup / shutdown) 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -34,7 +34,7 @@ async def lifespan(app: FastAPI):
     logger.info("👋 D2LNOTIONMCP shut down cleanly")
 
 
-# ── App ───────────────────────────────────────────────────────────────────────
+# App 
 
 app = FastAPI(
     title="D2LNOTIONMCP",
@@ -47,7 +47,7 @@ app = FastAPI(
 )
 
 
-# ── Health ────────────────────────────────────────────────────────────────────
+# Health 
 
 @app.get("/health", tags=["meta"])
 async def health() -> dict[str, str]:
@@ -55,7 +55,7 @@ async def health() -> dict[str, str]:
     return {"status": "ok", "service": "D2LNOTIONMCP"}
 
 
-# ── Courses ───────────────────────────────────────────────────────────────────
+# Courses 
 
 @app.get(
     "/courses",
@@ -94,7 +94,7 @@ async def sync_courses(db: AsyncSession = Depends(get_db)) -> dict[str, Any]:
         )
 
 
-# ── Assignments ───────────────────────────────────────────────────────────────
+# Assignments 
 
 @app.get(
     "/assignments/{course_id}",
@@ -133,7 +133,7 @@ async def sync_assignments(
         )
 
 
-# ── Quizzes ───────────────────────────────────────────────────────────────────
+# Quizzes 
 
 @app.get(
     "/quizzes/{course_id}",
@@ -162,7 +162,7 @@ async def sync_quizzes(
     )
 
 
-# ── Syllabus ──────────────────────────────────────────────────────────────────
+# Syllabus 
 
 @app.get(
     "/syllabus/{course_id}",

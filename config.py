@@ -32,27 +32,27 @@ def _optional(key: str, default: str = "") -> str:
 
 @dataclass(frozen=True)
 class Settings:
-    # ── D2L ──────────────────────────────────────────────────────────────────
-    d2l_base_url: str          # e.g. https://your-institution.brightspace.com
+    # D2L 
+    d2l_base_url: str          # https://your-institution.brightspace.com
     d2l_api_token: str         # Valence API bearer token
 
-    # ── Notion ────────────────────────────────────────────────────────────────
+    # Notion 
     notion_api_token: str
     notion_assignments_db_id: str
     notion_quizzes_db_id: str
     notion_syllabus_page_id: str
 
-    # ── PostgreSQL ────────────────────────────────────────────────────────────
-    postgres_url: str          # e.g. postgresql+asyncpg://user:pass@host/db
+    # PostgreSQL 
+    postgres_url: str        
 
-    # ── Redis (optional) ─────────────────────────────────────────────────────
+    # Redis  
     redis_url: str
     cache_ttl_seconds: int
 
-    # ── OpenAI (optional) ────────────────────────────────────────────────────
+    # OpenAI 
     openai_api_key: str
 
-    # ── App ───────────────────────────────────────────────────────────────────
+    # App 
     app_env: str
     log_level: str
 
@@ -61,7 +61,7 @@ class Settings:
 def get_settings() -> Settings:
     """Return a cached singleton Settings instance.
 
-    Called once at import time by dependent modules; subsequent calls return
+    Called once at import time by dependent modules, subsequent calls return
     the cached object so .env parsing only happens once.
     """
     return Settings(

@@ -57,7 +57,7 @@ Full interactive docs available at `http://localhost:8000/docs` when running.
 ### With Docker (recommended)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/campusmcp.git
+git clone https://github.com/larrywg/d2l-mcp-server-notion.git
 cd campusmcp
 
 cp .env.example .env

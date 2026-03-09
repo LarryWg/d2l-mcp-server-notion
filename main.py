@@ -26,18 +26,18 @@ logger = logging.getLogger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Run setup before the app starts and teardown when it stops."""
-    logger.info("🚀 CampusMCP starting up…")
+    logger.info("🚀 D2LNOTIONMCP starting up…")
     await init_db()                  # create tables if they don't exist
     logger.info("✅ Database tables ready")
     yield
     await d2l_client.close_client()  # close the shared httpx client
-    logger.info("👋 CampusMCP shut down cleanly")
+    logger.info("👋 D2LNOTIONMCP shut down cleanly")
 
 
 # ── App ───────────────────────────────────────────────────────────────────────
 
 app = FastAPI(
-    title="CampusMCP",
+    title="D2LNOTIONMCP",
     description=(
         "MCP-style API server that bridges D2L (Brightspace) and Notion. "
         "Fetch course data, store it in PostgreSQL, and sync it to Notion."
@@ -52,7 +52,7 @@ app = FastAPI(
 @app.get("/health", tags=["meta"])
 async def health() -> dict[str, str]:
     """Simple liveness probe."""
-    return {"status": "ok", "service": "CampusMCP"}
+    return {"status": "ok", "service": "D2LNOTIONMCP"}
 
 
 # ── Courses ───────────────────────────────────────────────────────────────────
